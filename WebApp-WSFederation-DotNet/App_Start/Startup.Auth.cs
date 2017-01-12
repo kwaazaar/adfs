@@ -41,13 +41,12 @@ namespace WebApp_WSFederation_DotNet
         // The Authority is the sign-in URL of the tenant.
         // The Post Logout Redirect Uri is the URL where the user will be redirected after they sign out.
         //
-        private static string realm = ConfigurationManager.AppSettings["ida:Wtrealm"];
-        private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];
-        private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
-        private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);
-       
-
-        string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);
+        private static string realm = ConfigurationManager.AppSettings["ida:RPIdentifier"];
+        //private static string aadInstance = ConfigurationManager.AppSettings["ida:AADInstance"];
+        //private static string tenant = ConfigurationManager.AppSettings["ida:Tenant"];
+        //private static string metadata = string.Format("{0}/{1}/federationmetadata/2007-06/federationmetadata.xml", aadInstance, tenant);
+        private static string metadata = string.Format("https://{0}/federationmetadata/2007-06/federationmetadata.xml", ConfigurationManager.AppSettings["ida:ADFS"]);
+        //string authority = String.Format(CultureInfo.InvariantCulture, aadInstance, tenant);
 
         public void ConfigureAuth(IAppBuilder app)
         {
