@@ -57,6 +57,13 @@ namespace WebApp_WSFederation_DotNet
             app.UseWsFederationAuthentication(
                 new WsFederationAuthenticationOptions
                 {
+                    TokenValidationParameters = new TokenValidationParameters
+                    {
+                        ValidateAudience = true,
+                        ValidAudience = realm,
+                        RoleClaimType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role",
+                        NameClaimType = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn"
+                    },
                     Wtrealm = realm,
                     MetadataAddress = metadata,
                     Notifications = new WsFederationAuthenticationNotifications
