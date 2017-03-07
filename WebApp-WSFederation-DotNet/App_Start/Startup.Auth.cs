@@ -62,7 +62,7 @@ namespace WebApp_WSFederation_DotNet
                         ValidateAudience = true,
                         ValidAudience = realm,
                         RoleClaimType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role",
-                        NameClaimType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname", // "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn" (upn=maikel.stuivenberg@nslogin.nl)
+                        NameClaimType = "http://schemas.xmlsoap.org/ws/2005/05/identity/claims/upn", // WindowsAccountName gebruiken we niet, want is zonder domein: "http://schemas.microsoft.com/ws/2008/06/identity/claims/windowsaccountname"
                     },
                     Wtrealm = realm,
                     MetadataAddress = metadata,
